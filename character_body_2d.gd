@@ -10,6 +10,7 @@ var mouse_controls: bool = false
 var target_y: float = 0.0
 var mouse_sensitivity: float = 0.3
 
+#Pause doohickeys.
 func pause():
 	Engine.time_scale = 0.0
 	
