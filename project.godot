@@ -15,6 +15,10 @@ run/main_scene="uid://fc1xsaogevib"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveManager="*uid://bl003hlyb4ub6"
+
 [editor]
 
 version_control/autoload_on_startup=true

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cfuochu4x85lg" path="res://101292838-eee2ae80-37df-11eb-89e8-4f6d3ca4a5f1.png" id="1_5b7ti"]
 [ext_resource type="Script" uid="uid://ckyu441m7cs1y" path="res://main_menu.gd" id="1_i5qic"]
 [ext_resource type="FontFile" uid="uid://chihaflad8hyy" path="res://press-start-2p-font/PressStart2P-vaV7.ttf" id="2_dvdtt"]
+[ext_resource type="Texture2D" uid="uid://qhhevmimy3bl" path="res://configuration.png" id="4_12kdf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwd2w"]
 bg_color = Color(0.77024835, 0.77024835, 0.77024835, 1)
@@ -29,6 +30,8 @@ corner_radius_bottom_left = 5
 corner_detail = 1
 
 [sub_resource type="Theme" id="Theme_12kdf"]
+
+[sub_resource type="GDScript" id="GDScript_12kdf"]
 
 [node name="MainMenu" type="Control" unique_id=1620129770]
 layout_mode = 3
@@ -73,7 +76,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_xwd2w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
 action_mode = 0
-text = "arcade"
+text = "ARCADE"
 
 [node name="classic button" type="Button" parent="." unique_id=301635109]
 layout_mode = 1
@@ -96,27 +99,36 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_xwd2w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
 action_mode = 0
-text = "classic"
+text = "CLASSIC"
 
 [node name="exit" type="Button" parent="." unique_id=76562678]
 layout_mode = 0
-offset_left = 592.0
+offset_left = 520.0
 offset_top = 400.0
-offset_right = 696.0
+offset_right = 632.0
 offset_bottom = 448.0
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("2_dvdtt")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_xwd2w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+text = "EXIT"
 
 [node name="settings" type="Button" parent="." unique_id=382202661]
 layout_mode = 0
-offset_left = 456.0
-offset_top = 400.0
-offset_right = 560.0
-offset_bottom = 448.0
+offset_left = 544.0
+offset_top = 456.0
+offset_right = 608.0
+offset_bottom = 520.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xwd2w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dvdtt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+icon = ExtResource("4_12kdf")
+
+[node name="arcade high score" type="Node" parent="." unique_id=646363261]
+script = SubResource("GDScript_12kdf")
 
 [connection signal="pressed" from="arcade button" to="." method="_on_arcade_button_pressed"]
 [connection signal="pressed" from="classic button" to="." method="_on_classic_button_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

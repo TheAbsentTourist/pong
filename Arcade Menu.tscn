@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b7vjioke31ah4"]
+
+[ext_resource type="Texture2D" uid="uid://r1cvkiqcrfyr" path="res://images.jpg" id="1_lnphk"]
+[ext_resource type="Script" uid="uid://bwhvmfb525wfd" path="res://arcade_menu.gd" id="1_xg1sd"]
+[ext_resource type="FontFile" uid="uid://bs3dsiysn2i82" path="res://PressStart2P-vaV7.ttf" id="2_6cyxs"]
+
+[node name="ArcadeMenu" type="Control" unique_id=2104549552]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xg1sd")
+
+[node name="background" type="Sprite2D" parent="." unique_id=889489435 groups=["Visuals"]]
+z_index = -1
+position = Vector2(612.26843, 324)
+scale = Vector2(4.7010303, 2.5637062)
+texture = ExtResource("1_lnphk")
+offset = Vector2(-7.715, 0)
+
+[node name="Camera2D" type="Camera2D" parent="background" unique_id=2056197285]
+position = Vector2(-7.6949997, -0.080589294)
+scale = Vector2(0.019988973, 0.08060223)
+offset = Vector2(-1.015, 1.005)
+zoom = Vector2(1.295, 1)
+editor_draw_limits = true
+
+[node name="Arcade_high" type="Label" parent="." unique_id=533796789]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -68.0
+offset_right = 306.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6cyxs")
+theme_override_font_sizes/font_size = 61
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Arcade_highplate" type="Label" parent="." unique_id=269132669]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -308.0
+offset_right = 306.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6cyxs")
+theme_override_font_sizes/font_size = 61
+text = "ARCADE
+HIGH SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=2030542441]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 456.0
+offset_right = 656.0
+offset_bottom = 616.0
+text = "PLAY"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
