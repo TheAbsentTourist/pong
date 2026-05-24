@@ -44,6 +44,7 @@ z_index = -1
 position = Vector2(576, 324.00003)
 scale = Vector2(0.558, 0.517)
 texture = ExtResource("2_e2o6t")
+offset = Vector2(-6.665, 0)
 
 [node name="Camera2D" type="Camera2D" parent="background" unique_id=1530497276]
 position = Vector2(0.16840363, -0.39970398)
