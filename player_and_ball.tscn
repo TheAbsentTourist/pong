@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dnrc4ipmjjjos" path="res://images.png" id="2_c3ues"]
 [ext_resource type="Script" uid="uid://c5ktme8hejuti" path="res://ball.gd" id="3_e7f01"]
 [ext_resource type="FontFile" uid="uid://chihaflad8hyy" path="res://press-start-2p-font/PressStart2P-vaV7.ttf" id="4_c3ues"]
+[ext_resource type="AudioStream" uid="uid://bfsbo1m1pf7fx" path="res://PongWallHit.ogg" id="4_e7f01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rghya"]
 size = Vector2(20, 107.000015)
@@ -53,6 +54,11 @@ texture = ExtResource("2_c3ues")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=865754962]
 shape = SubResource("RectangleShape2D_cu7ve")
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="Ball" unique_id=889130869]
+stream = ExtResource("4_e7f01")
+pitch_scale = 0.79
+playback_type = 1
 
 [node name="Score" type="Label" parent="." unique_id=2006901655]
 offset_left = 249.0

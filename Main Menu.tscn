@@ -80,11 +80,18 @@ text = "PLAY"
 
 [node name="exit" type="Button" parent="." unique_id=76562678]
 top_level = true
-layout_mode = 0
-offset_left = 520.0
-offset_top = 376.0
-offset_right = 632.0
-offset_bottom = 416.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 52.0
+offset_right = 56.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
 theme_override_fonts/font = ExtResource("2_dvdtt")
 theme_override_font_sizes/font_size = 24
@@ -95,11 +102,18 @@ text = "EXIT"
 
 [node name="settings" type="Button" parent="." unique_id=382202661]
 top_level = true
-layout_mode = 0
-offset_left = 464.0
-offset_top = 328.0
-offset_right = 688.0
-offset_bottom = 368.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 4.0
+offset_right = 112.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
 theme_override_fonts/font = ExtResource("4_xwd2w")
 theme_override_font_sizes/font_size = 30
@@ -112,8 +126,8 @@ text = "OPTIONS"
 script = SubResource("GDScript_12kdf")
 
 [node name="button background" type="Sprite2D" parent="." unique_id=2102080041]
-position = Vector2(579.5, 344)
-scale = Vector2(1.201031, 0.55598456)
+position = Vector2(576, 348)
+scale = Vector2(0.16494834, 0.6486485)
 texture = ExtResource("5_wfgb2")
 
 [connection signal="pressed" from="arcade button" to="." method="_on_arcade_button_pressed"]

@@ -7,6 +7,7 @@ var speed_increment: float = 2.0  # How much faster it gets per bounce
 var max_speed: float = 800.0       # The absolute top speed cap
 
 @onready var other_character: CharacterBody2D = $"../Player"
+@onready var hit_player = $HitPlayer
 
 
 #Absolute LLM magic nonsense code, I understand any of the physics here but
@@ -42,3 +43,5 @@ func _physics_process(delta: float) -> void:
 		# 5. Step up the speed and apply it
 		current_speed = min(current_speed + speed_increment, max_speed)
 		velocity = bounce_direction * current_speed
+		
+		hit_player.play()
