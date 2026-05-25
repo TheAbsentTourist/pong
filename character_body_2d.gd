@@ -2,13 +2,16 @@ extends CharacterBody2D
 
 @onready var score_label: Label = $"../Score"
 
+
+const SAVE_PATH = "user://settings.cfg"
 const speed: int = 200 * 100
 var score: int = 0
 var can_score: bool = true
 var paused: bool = false
 var mouse_controls: bool = false
 var target_y: float = 0.0
-var mouse_sensitivity: float = 0.3
+var mouse_sensitivity: float = 1.0
+
 
 #Pause doohickeys.
 func pause():
@@ -22,8 +25,21 @@ func unpause():
 
 func _ready():
 	score_label.text = str(score)
+	load_settings() # Load the sensitivity right when the scene starts
 	
-	#Gets W and S and converts them to vertical movement.
+func load_settings():
+	var config = ConfigFile.new()
+	var error = config.load(SAVE_PATH)
+	
+	# If the file successfully loads, read the value
+	if error == OK:
+		# get_value takes: (Section_Name, Key_Name, Default_Fallback_Value)
+		mouse_sensitivity = config.get_value("Controls", "mouse_sensitivity", 1.0)
+		print("Loaded saved sensitivity: ", mouse_sensitivity)
+	else:
+		print("No settings file found, using default sensitivity.")
+	
+#Gets W and S and converts them to vertical movement.
 func _physics_process(delta: float) -> void:
 	if mouse_controls:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -47,6 +63,7 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if mouse_controls and event is InputEventMouseMotion:
 		target_y += event.relative.y * mouse_sensitivity
+		print(mouse_sensitivity)
 
 #Adds 1 to score every time the area2d node is entered.
 func _on_area_2d_body_entered(_body: Node2D) -> void:
@@ -69,6 +86,5 @@ func _process(_delta: float):
 	if Input.is_action_just_pressed("toggle_mouse"):
 		mouse_controls = !mouse_controls
 		print(mouse_controls)
-	if mouse_controls:
-		target_y = global_position.y
-	
+		if mouse_controls:
+			target_y = global_position.y

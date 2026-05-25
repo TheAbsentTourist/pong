@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://chprnwqn65h4j"]
+
+[ext_resource type="Script" uid="uid://bny1taq2xv8m2" path="res://options.gd" id="1_ywiuv"]
+[ext_resource type="Texture2D" uid="uid://r1cvkiqcrfyr" path="res://images.jpg" id="2_2r1l1"]
+[ext_resource type="Script" uid="uid://dyngjfou472w" path="res://options_camera.gd" id="3_2r1l1"]
+[ext_resource type="FontFile" uid="uid://chihaflad8hyy" path="res://press-start-2p-font/PressStart2P-vaV7.ttf" id="3_bwr58"]
+[ext_resource type="FontFile" uid="uid://bs3dsiysn2i82" path="res://PressStart2P-vaV7.ttf" id="5_bwr58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfe3t"]
+bg_color = Color(0.77024835, 0.77024835, 0.77024835, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1d33"]
+bg_color = Color(0.90758353, 0.90758353, 0.90758353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pjjr"]
+bg_color = Color(0.4648739, 0.4648739, 0.4648739, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[node name="Options" type="Control" unique_id=889380698]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ywiuv")
+
+[node name="background" type="Sprite2D" parent="." unique_id=126982298 groups=["Visuals"]]
+z_index = -1
+position = Vector2(607.9503, 544)
+scale = Vector2(4.659794, 4.262548)
+texture = ExtResource("2_2r1l1")
+offset = Vector2(-7.715, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1226818364]
+position = Vector2(576.094, 323.7934)
+scale = Vector2(0.093968764, 0.20664042)
+offset = Vector2(-1.015, 1.005)
+zoom = Vector2(1.295, 1)
+limit_top = 0
+limit_bottom = 1088
+editor_draw_limits = true
+script = ExtResource("3_2r1l1")
+
+[node name="exit" type="Button" parent="." unique_id=1335748671]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("3_bwr58")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfe3t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t1d33")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pjjr")
+text = "EXIT"
+
+[node name="options main label" type="Label" parent="." unique_id=1486684527]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 24.0
+offset_right = 856.0
+offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("5_bwr58")
+theme_override_font_sizes/font_size = 80
+text = "options"
+uppercase = true
+
+[node name="Sens_Slide" type="HSlider" parent="." unique_id=861205751]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 152.0
+offset_right = 440.0
+offset_bottom = 240.0
+min_value = 0.01
+max_value = 10.0
+step = 0.0
+value = 5.0
+
+[node name="Sens_Label" type="Label" parent="Sens_Slide" unique_id=752092105]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("5_bwr58")
+theme_override_font_sizes/font_size = 15
+
+[node name="reset" type="Button" parent="Sens_Slide" unique_id=1118328295]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 16.0
+offset_right = 816.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.0093103545, 0.0093103545, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("3_bwr58")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfe3t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t1d33")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5pjjr")
+text = "RESET"
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="drag_ended" from="Sens_Slide" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="Sens_Slide" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Sens_Slide/reset" to="." method="_on_reset_pressed"]

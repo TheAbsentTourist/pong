@@ -132,3 +132,4 @@ script = SubResource("GDScript_12kdf")
 [connection signal="pressed" from="arcade button" to="." method="_on_arcade_button_pressed"]
 [connection signal="pressed" from="classic button" to="." method="_on_classic_button_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
