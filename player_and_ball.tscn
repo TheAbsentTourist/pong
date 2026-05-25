@@ -19,6 +19,8 @@ size = Vector2(0.9500122, 102.999985)
 process_mode = 3
 position = Vector2(908.61, 406.9)
 motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 4294901760
 script = ExtResource("1_tj5lm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1902623333]
@@ -40,6 +42,8 @@ shape = SubResource("RectangleShape2D_tj5lm")
 position = Vector2(469.045, 337.78)
 scale = Vector2(1.06, 1.06)
 motion_mode = 1
+platform_on_leave = 2
+platform_floor_layers = 4294901760
 script = ExtResource("3_e7f01")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=1006408769 groups=["Visuals"]]

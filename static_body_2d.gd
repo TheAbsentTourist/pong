@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var gameover_label: Label = $"..s/GameOver"
+@onready var gameover_label: Label = $"../GameOver"
 
 var game_over: bool = false
 
